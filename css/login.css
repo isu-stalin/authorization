@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: 1px solid #ff004c;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(255, 0, 76, 0.4);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.form::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 0, 76, 0.2), transparent 70%);
+  animation: pulse 6s infinite linear;
+  z-index: 0;
+}
+
+.form input {
+  padding: 0.9rem 1rem;
+  background-color: #1c1c1c;
+  border: 1px solid #ff004c;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form input:focus {
+  border-color: #ff1a75;
+  box-shadow: 0 0 10px rgba(255, 0, 76, 0.4);
+  outline: none;
+}
+
+.form .sign-in-btn {
+  padding: 1rem;
+  background: linear-gradient(to right, #ff004c, #ff1a75);
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form .sign-in-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255, 26, 117, 0.6);
+}
+
+.form .sign-in-btn:active {
+  transform: scale(0.98);
+}
+
+.form * {
+  z-index: 1;
+}
+
+.error-message {
+  display: none;
+  color: #ff004c;
+  background-color: rgba(255, 0, 76, 0.1);
+  padding: 0.8rem 1rem;
+  border: 1px solid #ff004c;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.error-indicator {
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px dashed #ff004c;
+  border-radius: 1.2rem;
+  animation: flashBorder 1s infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes flashBorder {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
